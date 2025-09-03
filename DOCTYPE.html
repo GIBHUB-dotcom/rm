@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para Rosa Milagros 💖</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at center, 
+                  rgba(255, 182, 193, 0.15) 0%,   
+                  rgba(255, 182, 193, 0.3) 30%,   
+                  rgba(198, 50, 103, 0.7) 70%,    
+                  rgba(120, 20, 50, 0.85) 100%);
+      overflow-x: hidden;
+      font-family: 'Comic Sans MS', cursive, 'Parisienne', cursive;
+      text-align: center;
+      position: relative;
+      min-height: 100vh;
+      color: #5c2a57;
+      user-select: none;
+    }
+
+    h1 {
+      margin-top: 80px;
+      color: #d63384;
+      font-size: 3em;
+      text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.7),
+        0 0 10px rgba(255, 255, 255, 0.5),
+        0 0 20px rgba(255, 255, 255, 0.3);
+      user-select: text;
+      padding: 0 10px;
+    }
+
+    p {
+      color: #5c2a57;
+      font-size: 1.5em;
+      margin: 20px auto;
+      width: 80%;
+      max-width: 700px;
+      line-height: 1.5;
+      user-select: text;
+      padding: 0 10px;
+    }
+
+    .extra-message {
+      font-size: 1.4em;
+      color: #ff1493;
+      margin: 40px auto 80px;
+      max-width: 800px;
+      animation: fadeIn 4s ease-in-out;
+      text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.8),
+        0 0 12px rgba(255, 255, 255, 0.5);
+      line-height: 1.6;
+      padding: 0 20px;
+      user-select: text;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .falling {
+      position: fixed;
+      top: -50px;
+      pointer-events: none;
+      animation: fall linear infinite;
+      user-select: none;
+      z-index: 10;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    .rising {
+      position: fixed;
+      bottom: -50px;
+      pointer-events: none;
+      animation: rise linear infinite;
+      user-select: none;
+      z-index: 10;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-110vh) rotate(-360deg); opacity: 0; }
+    }
+
+    .sunflowers {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: transparent;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 0;
+      z-index: 1;
+      user-select: none;
+    }
+
+    .sunflowers span {
+      font-size: 2em;
+      margin: 5px;
+      animation: sway 3s infinite ease-in-out alternate;
+    }
+
+    @keyframes sway {
+      from { transform: rotate(-10deg); }
+      to { transform: rotate(10deg); }
+    }
+
+    /* Ajustes responsivos para móviles */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+        margin-top: 60px;
+      }
+      p {
+        font-size: 1.1em;
+        width: 90%;
+      }
+      .extra-message {
+        font-size: 1.1em;
+        margin: 30px auto 60px;
+        max-width: 90%;
+      }
+      .sunflowers span {
+        font-size: 1.5em;
+        margin: 3px;
+      }
+      .falling, .rising {
+        font-size: 15px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Para Rosa Milagros Guzmán Fabián 🌹</h1>
+
+  <p>
+    Eres una flor entre flores, un corazón que brilla con amor.<br>
+    Este pequeño detalle es solo para recordarte lo especial que eres para mí.<br>
+    Gracias por existir y por llenar mi vida de alegría y ternura. 💕
+  </p>
+
+  <div class="extra-message">
+    Hay días en los que el sol brilla, pero no calienta.<br>
+    Hay momentos en los que el alma sonríe, pero no se siente completa.<br>
+    Y es que hay presencias que, aun en la distancia,<br>
+    hacen falta para que todo tenga sentido.
+  </div>
+
+  <div class="sunflowers" aria-hidden="true">
+    <span>🌻</span><span>🌻</span><span>🌻</span><span>🌻</span><span>🌻</span>
+    <span>🌻</span><span>🌻</span><span>🌻</span><span>🌻</span><span>🌻</span>
+  </div>
+
+  <script>
+    // Corazones y flores cayendo
+    const emojis = ["🌸", "🌹", "💖", "💘", "💗"];
+    const numFalling = 40;
+
+    for (let i = 0; i < numFalling; i++) {
+      let emoji = document.createElement("div");
+      emoji.classList.add("falling");
+      emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.left = Math.random() * 100 + "vw";
+      emoji.style.animationDuration = (3 + Math.random() * 5) + "s";
+      emoji.style.fontSize = (20 + Math.random() * 30) + "px";
+      document.body.appendChild(emoji);
+    }
+
+    // Girasoles que suben
+    const numRising = 30;
+
+    for (let i = 0; i < numRising; i++) {
+      let sunflower = document.createElement("div");
+      sunflower.classList.add("rising");
+      sunflower.innerText = "🌻";
+      sunflower.style.left = Math.random() * 100 + "vw";
+      sunflower.style.animationDuration = (4 + Math.random() * 6) + "s";
+      sunflower.style.fontSize = (20 + Math.random() * 30) + "px";
+      document.body.appendChild(sunflower);
+    }
+  </script>
+
+</body>
+</html>
